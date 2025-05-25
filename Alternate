@@ -1,0 +1,16 @@
+def alternate(s: str) -> int:
+    unique = set(s) 
+    longest = 0   
+    for char1 in unique:
+        for char2 in unique:
+            if char1 == char2:
+                continue
+            filtered = [c for c in s if c == char1 or c == char2]
+            valid = True
+            for i in range(len(filtered) - 1):
+                if filtered[i] == filtered[i + 1]:
+                    valid = False
+                    break
+            if valid:
+                longest = max(longest, len(filtered))
+    return longest
