@@ -1,0 +1,9 @@
+def can_form_palindrome(s: str) -> str:
+    from collections import Counter
+
+    char_counts = Counter(s)  
+    odd_chars = 0  
+    for count in char_counts.values():
+        if count % 2 != 0:
+            odd_chars += 1
+return "YES" if odd_chars <= 1 else "NO"
